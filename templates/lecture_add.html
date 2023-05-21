@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lecture_add</title>
+</head>
+<body>
+<h1>DB Online Learning Platform</h1>
+
+    Subject List
+    <table border="1">
+      <thead>
+          <th>00</th>
+          <th>01</th>
+          <th>02</th>
+      </thead>
+  
+      <tbody>
+          <tr>
+              <td>0</td>
+              <td>1</td>
+              <td>2</td>
+          </tr>
+      </tbody>
+    </table><br>
+
+<form action="/lecture" method="post">
+    <label for="lecture_code">Code:</label>
+    <input id="lecture_code" type="text" name="code" value=""><br>
+
+    <label for="lecture_name">Name:</label>
+    <input id="lecture_name" type="text" name="name" value=""><br>
+
+    <label for="lecture_price">Price:</label>
+    <input id="lecture_price" type="text" name="price" value=""><br>
+
+    <input type="submit" name="send" value="add"><br>
+    <input type="submit" name="send" value="cancel">
+</form>
+
+</body>
+</html>

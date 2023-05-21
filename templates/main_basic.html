@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>main_basic</title>
+</head>
+<body>
+<h1>DB Online Learning Platform</h1>
+
+<label for="admin_function">Admin function</label><br>
+<form action="/print_user_table" method="post">
+    <input type="submit" name="send" value="users info">
+</form>
+<form action="/print_lecture_table" method="post">
+    <input type="submit" name="send" value="lectures info">
+</form>
+<input type="submit" name="send" value="trades info"><br><br>
+
+<label for="view_lecture">View lecture</label><br>
+<input type="submit" name="send" value="my info"><br><br>
+==============================================================<br>
+<table border="1">
+    <thead>
+        <th>popular subject</th>
+        <th>popular lecture</th>
+        <th>popular tutor</th>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<form action="/return" method="post">
+    <h2>User Info</h2>
+    current user: <input type="submit" name="send" value="logout"><br>
+    credit: <br>
+    rating: <br>
+</form>
+
+
+<form action="/lecture" method="post">
+    <h2>Lectures</h2>
+    <input type="submit" name="send" value="add"><br>
+<table border="1">
+    <thead>
+        <th>code</th>
+        <th>name</th>
+        <th>price</th>
+        <th>tutor</th>
+        <th></th>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td><input type="submit" name="send" value="register"></td>
+        </tr>
+    </tbody>
+  </table>
+</form>
+
+</body>
+</html>
