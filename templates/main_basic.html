@@ -12,9 +12,9 @@
     <input type="submit" name="send" value="users info">
 </form>
 <form action="/print_lecture_table" method="post">
-    <input type="submit" name="send" value="lectures info">
+    <input type="submit" name="send" value="trades info">
 </form>
-<input type="submit" name="send" value="trades info"><br><br>
+<br>
 
 <label for="view_lecture">View lecture</label><br>
 <input type="submit" name="send" value="my info"><br><br>
@@ -36,11 +36,14 @@
 </table>
 
 
-<form action="/return" method="post">
+<form action="/register" method="post">
     <h2>User Info</h2>
-    current user: <input type="submit" name="send" value="logout"><br>
-    credit: <br>
-    rating: <br>
+    current user: {{ account[0] }} <br>
+    credit: {{ account[1] }}<br>
+    rating: {{ account[2] }}<br>
+</form>
+<form action="/return" method="post">
+    <input type="submit" name="send" value="logout">
 </form>
 
 

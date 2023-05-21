@@ -12,21 +12,23 @@ def main():
 
 @app.route('/return', methods=['post'])
 def re_turn():
-    return render_template("welcome.html")
+    cur.execute("SELECT * FROM users;")
+    result = cur.fetchall()
+    return render_template("welcome.html", lecture=result)
 
 
 @app.route('/print_user_table', methods=['post'])
 def print_user_table():
     cur.execute("SELECT * FROM users;")
     result = cur.fetchall()
-    
-    id = request.form.get("id")
-    
-    if id == "admin":
-        return render_template("print_user_table.html", users=result)
-    
-    else:
-        return "You are not authorized to view this page."
+    return render_template("print_user_table.html", users=result)
+
+
+@app.route('/print_lecture_table', methods=['post'])
+def print_lecture_table():
+    cur.execute("SELECT * FROM lecture;")
+    result = cur.fetchall()
+    return render_template("print_lecture_table.html", lecture=result)
 
 
 @app.route('/register', methods=['post'])
@@ -39,19 +41,28 @@ def register():
     if send == "login":
         # Check if a tuple with matching ID, PW already exists
         cur.execute("SELECT * FROM users WHERE id = %s AND password = %s;", (id, password))
-        result = cur.fetchone()
+        users_result = cur.fetchone()
+        print(users_result) # ('admin', '0000')
+        
+        cur.execute("SELECT * FROM account WHERE id = %s;", (id,))
+        account_result = cur.fetchone() # ('admin', 10000000, 'gold', 'tutor')
+        print(account_result)
 
-        # Login fail
-        if result is None:
+        # Login fail if no match id
+        if users_result is None:
             return render_template("login_fail.html")
 
         # login success
-        return render_template("main_basic.html")
+        return render_template("main_basic.html", account=account_result)
 
     # Sign up
     elif send == "sign up": 
         return render_template("signup.html")
-     
+    
+    elif send == "logout":
+        return render_template("welcome.html")
+
+  
 @app.route('/create', methods=['post'])
 def create():      
     id = request.form["id"]
@@ -72,7 +83,7 @@ def create():
     connect.commit()
     
     # Insert user into account table
-    cur.execute("INSERT INTO account VALUES (%s, %s, %s, %s);", (id, 0, initial_rate, role))
+    cur.execute("INSERT INTO account VALUES (%s, %s, %s, %s);", (id, 10000, initial_rate, role))
     connect.commit()
         
     return render_template("welcome.html")
