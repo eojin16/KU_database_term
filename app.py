@@ -128,12 +128,12 @@ def my_info_tutor():
     print(my_id)
     
     # lecture that tutor teaches
-    cur.execute("SELECT * FROM enrollment WHERE tutor= %s;", (my_id,))
+    cur.execute("SELECT distinct subject.subject_name, enrollment.lecture_name, enrollment.tutor, enrollment.lecture_price FROM enrollment JOIN subject ON subject.code = enrollment.code WHERE enrollment.tutor = %s;", (my_id,))
     my_result = cur.fetchall() # [('aa', 'admin', '01', 'database system', 2000)
     print(my_result)
     
     # lecture that tutor bought
-    cur.execute("SELECT * FROM enrollment WHERE tutee= %s;", (my_id,))
+    cur.execute("SELECT distinct subject.subject_name, enrollment.lecture_name, enrollment.tutor, enrollment.lecture_price FROM enrollment JOIN subject ON subject.code = enrollment.code WHERE enrollment.tutee = %s;", (my_id,))
     registered_result = cur.fetchall() # [('aa', 'admin', '01', 'database system', 2000)
     print(registered_result)
        
