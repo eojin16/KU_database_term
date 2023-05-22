@@ -64,3 +64,9 @@ INSERT INTO account VALUES('postgres', 75000, 'bronze', 'tutee');
 INSERT INTO lecture VALUES('00', 'korean history', 1000, 'admin');
 
 INSERT INTO enrollment VALUES('postgres', 'admin', '00', 'korean history',1000);
+
+## ADD
+
+INSERT INTO lecture VALUES('01', 'database system', 2000, 'admin');
+
+INSERT INTO enrollment VALUES('postgres', 'admin', '01', 'database system',2000);
