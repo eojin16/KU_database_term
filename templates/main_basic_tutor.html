@@ -7,17 +7,15 @@
 <body>
 <h1>DB Online Learning Platform</h1>
 
-<label for="admin_function">Admin function</label><br>
-<form action="/print_user_table" method="post">
-    <input type="submit" name="send" value="users info">
-</form>
-<form action="/print_lecture_table" method="post">
-    <input type="submit" name="send" value="trades info">
-</form>
+<h3>Admin function</h3>
+You are not allowed to use the admin function. You must be logged in with the admin id to use the admin function.
 <br>
 
-<label for="view_lecture">View lecture</label><br>
-<input type="submit" name="send" value="my info"><br><br>
+<h3>View lecture</h3>
+<form action="/my_info_tutor" method="post">
+    <input type="submit" name="send" value="my info">
+</form>
+<br>
 ==============================================================<br>
 <form action="/register" method="post">
     <table border="1">
@@ -64,12 +62,12 @@
         </thead>
 
         <tbody>
-            {% for lecture in lecture %}
+            {% for l in lecture %}
             <tr>
-                <td>{{ lecture[0] }}</td>
-                <td>{{ lecture[1] }}</td>
-                <td>{{ lecture[2] }}</td>
-                <td>{{ lecture[3] }}</td>
+                <td>{{ l[0] }}</td>
+                <td>{{ l[1] }}</td>
+                <td>{{ l[2] }}</td>
+                <td>{{ l[3] }}</td>
                 <td><input type="submit" name="send" value="register"></td>
             </tr>
             {% endfor %}

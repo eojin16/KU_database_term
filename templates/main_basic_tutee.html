@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>main_basic</title>
+</head>
+<body>
+<h1>DB Online Learning Platform</h1>
+
+<h3>Admin function</h3>
+You are not allowed to use the admin function. You must be logged in with the admin id to use the admin function.
+<br>
+
+<h3>View lecture</h3>
+<form action="/my_info_tutee" method="post">
+    <input type="submit" name="send" value="my info">
+</form>
+<br>
+==============================================================<br>
+<form action="/register_return_tutee" method="post">
+    <table border="1">
+        <thead>
+            <th>popular subject</th>
+            <th>popular lecture</th>
+            <th>popular tutor</th>
+            <th>num</th>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{ popular_lecture[0] }}</td>
+                <td>{{ popular_lecture[1] }}</td>
+                <td>{{ popular_lecture[2] }}</td>
+                <td>{{ popular_lecture[3] }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>User Info</h2>
+    current user: {{ account[0] }} <br>
+    credit: {{ account[1] }}<br>
+    rating: {{ account[2] }}<br>
+</form>
+
+
+<form action="/return" method="post">
+    <input type="submit" name="send" value="logout">
+</form>
+
+
+<form action="/register_lecture" method="post">
+    <h2>Lectures</h2>
+    <input type="submit" name="send" value="add"><br>
+
+    <table border="1">
+        <thead>
+            <th>code</th>
+            <th>name</th>
+            <th>price</th>
+            <th>tutor</th>
+            <th></th>
+        </thead>
+
+        <tbody>
+            {% for l in lecture %}
+            <tr>
+                <td>{{ l[0] }}</td>
+                <td>{{ l[1] }}</td>
+                <td>{{ l[2] }}</td>
+                <td>{{ l[3] }}</td>
+                <td><input type="submit" name="send" value="register"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+
+
+<button onclick="toggle()">Show Table</button>
+<div id="toggle" style="display:none;">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John Doe</td>
+        <td>30</td>
+      </tr>
+      <tr>
+        <td>Jane Doe</td>
+        <td>25</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+    function toggle() {
+        var toggle = document.getElementById("toggle");
+        toggle.style.display = toggle.style.display === "none" ? "block" : "none";
+      }
+</script>
+
+</body>
+</html>

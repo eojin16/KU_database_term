@@ -2,69 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>main_tutor</title>
+    <title>main_tutee</title>
 </head>
 <body>
 <h1>DB Online Learning Platform</h1>
-<form action="/info" method="post">
-    <label for="admin_function">Admin function</label><br>
-    <input type="submit" name="send" value="users info">
-    <input type="submit" name="send" value="trades info"><br><br>
+<h2>My lecture</h2>
 
-    <label for="view_lecture">View lecture</label><br>
-    <input type="submit" name="send" value="my info"><br><br>
-    ==============================================================<br>
-</form>
-
-    <h2>My lecture</h2>
     <table border="1">
         <thead>
             <th>subject</th>
-            <th>lecture name</th>
-            <th>tutee</th>
-            <th>price</th>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td>0</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-        </tbody>
-
-        <tbody>
-            <tr>
-                <td>0</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-        </tbody>
-    </table>
-
-<form action="/return" method="post">
-    <h2>Registered Lecture</h2>
-    <table border="1">
-        <thead>
-            <th>subject</th>
-            <th>lecture name</th>
+            <th>lecture_name</th>
             <th>tutor</th>
             <th>price</th>
         </thead>
 
         <tbody>
+            {% for i in my %}
             <tr>
-                <td>0</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[4] }}</td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
-      <input type="submit" name="send" value="return">
-</form>
+
+    <h2>Registered lecture</h2>
+
+    <table border="1">
+        <thead>
+            <th>subject</th>
+            <th>lecture_name</th>
+            <th>tutor</th>
+            <th>price</th>
+        </thead>
+
+        <tbody>
+            {% for r in registered %}
+            <tr>
+                <td>{{ r[2] }}</td>
+                <td>{{ r[3] }}</td>
+                <td>{{ r[1] }}</td>
+                <td>{{ r[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <input type="submit" name="send" value="return" onclick="history.back(-1);">
 
 </body>
 </html>

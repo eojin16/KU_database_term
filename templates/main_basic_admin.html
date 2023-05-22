@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>main_basic</title>
+</head>
+<body>
+<h1>DB Online Learning Platform</h1>
+
+<h3>Admin function</h3>
+<form action="/print_user_table" method="post">
+    <input type="submit" name="send" value="users info">
+</form>
+<form action="/print_lecture_table" method="post">
+    <input type="submit" name="send" value="trades info">
+</form>
+<br>
+
+<h3>View lecture</h3>
+<form action="/my_info" method="post">
+    <input type="submit" name="send" value="my info">
+</form>
+<br>
+==============================================================<br>
+<form action="/register" method="post">
+    <table border="1">
+        <thead>
+            <th>popular subject</th>
+            <th>popular lecture</th>
+            <th>popular tutor</th>
+            <th>num</th>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{ popular_lecture[0] }}</td>
+                <td>{{ popular_lecture[1] }}</td>
+                <td>{{ popular_lecture[2] }}</td>
+                <td>{{ popular_lecture[3] }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>User Info</h2>
+    current user: {{ account[0] }} <br>
+    credit: {{ account[1] }}<br>
+    rating: {{ account[2] }}<br>
+</form>
+
+
+<form action="/return" method="post">
+    <input type="submit" name="send" value="logout">
+</form>
+
+
+<form action="/register_lecture" method="post">
+    <h2>Lectures</h2>
+    <input type="submit" name="send" value="add"><br>
+
+    <table border="1">
+        <thead>
+            <th>code</th>
+            <th>name</th>
+            <th>price</th>
+            <th>tutor</th>
+            <th></th>
+        </thead>
+
+        <tbody>
+            {% for l in lecture %}
+            <tr>
+                <td>{{ l[0] }}</td>
+                <td>{{ l[1] }}</td>
+                <td>{{ l[2] }}</td>
+                <td>{{ l[3] }}</td>
+                <td><input type="submit" name="send" value="register"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+
+</body>
+</html>
