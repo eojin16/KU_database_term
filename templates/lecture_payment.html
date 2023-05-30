@@ -15,27 +15,31 @@
             <th>price</th>
             <th>tutor</th>
         </thead>
-
+    
         <tbody>
+            {% for i in lecture %}
             <tr>
-                <td>0</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
+                <td> {{ i[0] }} </td>
+                <td> {{ i[1] }} </td>
+                <td> {{ i[2] }} </td>
+                <td> {{ i[3] }} </td>
             </tr>
+            {% endfor %}
         </tbody>
     </table><br>
 
 <form action="/payment" method="post">
-    Your credit: <br>
-    Your rating: <br><br>
-    Total price: <br>
-    Discount price: <br>
+    Your credit: {{ account[1] }}<br>
+    Your rating: {{ account[2] }}<br><br>
+
+    Total price: {{ lecture[0][2] }}<br>
+    Discount price: {{ discount_price }}<br>
     ==============================================================<br>
-    Final price: <br>
+    Final price: {{ final_price }}<br>
     <input type="submit" name="send" value="confirm"><br>
-    <input type="submit" name="send" value="cancel">
 </form>
+
+<input type="submit" name="send" value="cancel" onclick="history.back(-1);">
 
 </body>
 </html>

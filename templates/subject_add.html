@@ -2,32 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>lecture_add</title>
+    <title>subject_add</title>
 </head>
 <body>
 <h1>DB Online Learning Platform</h1>
 <h2>Subject List</h2>   
-<table border="1">
-    <tbody>
-        {% for s in subject %}
-        <tr>
-            <td> {{ s[0] }} </td>
-            <td> {{ s[1] }} </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    <table border="1">
+        <tbody>
+            {% for s in subject %}
+            <tr>
+                <td> {{ s[0] }} </td>
+                <td> {{ s[1] }} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 <br>
 
-<form action="/add_lecture" method="post">
+<form action="/add_subject_apply" method="post">
     <label for="lecture_code">Code:</label>
     <input id="lecture_code" type="text" name="code" value=""><br>
 
-    <label for="lecture_name">Name:</label>
+    <label for="lecture_name">Subject name:</label>
     <input id="lecture_name" type="text" name="name" value=""><br>
-
-    <label for="lecture_price">Price:</label>
-    <input id="lecture_price" type="text" name="price" value=""><br>
 
     <input type="submit" name="send" value="add"><br>
 </form>

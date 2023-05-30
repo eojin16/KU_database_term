@@ -23,7 +23,6 @@ You are not allowed to use the admin function. You must be logged in with the ad
             <th>popular subject</th>
             <th>popular lecture</th>
             <th>popular tutor</th>
-            <th>num</th>
         </thead>
 
         <tbody>
@@ -31,7 +30,6 @@ You are not allowed to use the admin function. You must be logged in with the ad
                 <td>{{ popular_lecture[0] }}</td>
                 <td>{{ popular_lecture[1] }}</td>
                 <td>{{ popular_lecture[2] }}</td>
-                <td>{{ popular_lecture[3] }}</td>
             </tr>
         </tbody>
     </table>
@@ -47,11 +45,12 @@ You are not allowed to use the admin function. You must be logged in with the ad
     <input type="submit" name="send" value="logout">
 </form>
 
+<h2>Lectures</h2>
+<form action="/add" method="post">
+    <input type="submit" name="send" value="add">
+</form>
 
 <form action="/register_lecture" method="post">
-    <h2>Lectures</h2>
-    <input type="submit" name="send" value="add"><br>
-
     <table border="1">
         <thead>
             <th>code</th>
@@ -68,7 +67,7 @@ You are not allowed to use the admin function. You must be logged in with the ad
                 <td>{{ l[1] }}</td>
                 <td>{{ l[2] }}</td>
                 <td>{{ l[3] }}</td>
-                <td><input type="submit" name="send" value="register"></td>
+                <td><button id="register" type="submit" name="lecture" value="{{ l[1] }}">register</button></td>
             </tr>
             {% endfor %}
         </tbody>

@@ -17,12 +17,12 @@
         </thead>
 
         <tbody>
-            {% for e in enrollment %}
+            {% for r in registered %}
             <tr>
-                <td>{{ e[2] }}</td>
-                <td>{{ e[3] }}</td>
-                <td>{{ e[1] }}</td>
-                <td>{{ e[4] }}</td>
+                <td>{{ r[0] }}</td>
+                <td>{{ r[1] }}</td>
+                <td>{{ r[2] }}</td>
+                <td>{{ r[3] }}</td>
             </tr>
             {% endfor %}
         </tbody>

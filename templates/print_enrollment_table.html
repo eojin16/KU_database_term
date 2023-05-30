@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>print_enrollment_table</title>
+</head>
+<body>
+
+<table border="1">
+    <thead>
+        <th>tutor</th>
+        <th>tutee</th>
+        <th>subject</th>
+        <th>lecture name</th>
+        <th>price</th>
+    </thead>
+
+    <tbody>
+        {% for e in enrollment %}
+        <tr>
+            <td> {{ e[0] }} </td>
+            <td> {{ e[1] }} </td>
+            <td> {{ e[2] }} </td>
+            <td> {{ e[3] }} </td>
+            <td> {{ e[4] }} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<input type="submit" name="send" value="return" onclick="history.go(-2);">
+
+</body>
+</html>

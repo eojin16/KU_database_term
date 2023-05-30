@@ -12,7 +12,10 @@
     <input type="submit" name="send" value="users info">
 </form>
 <form action="/print_lecture_table" method="post">
-    <input type="submit" name="send" value="trades info">
+    <input type="submit" name="send" value="lectures info">
+</form>
+<form action="/add_subject" method="post">
+    <input type="submit" name="send" value="add subject">
 </form>
 <br>
 
@@ -28,7 +31,6 @@
             <th>popular subject</th>
             <th>popular lecture</th>
             <th>popular tutor</th>
-            <th>num</th>
         </thead>
 
         <tbody>
@@ -36,7 +38,6 @@
                 <td>{{ popular_lecture[0] }}</td>
                 <td>{{ popular_lecture[1] }}</td>
                 <td>{{ popular_lecture[2] }}</td>
-                <td>{{ popular_lecture[3] }}</td>
             </tr>
         </tbody>
     </table>
@@ -47,16 +48,16 @@
     rating: {{ account[2] }}<br>
 </form>
 
-
 <form action="/return" method="post">
     <input type="submit" name="send" value="logout">
 </form>
 
+<h2>Lectures</h2>
+<form action="/add" method="post">
+    <input type="submit" name="send" value="add">
+</form>
 
 <form action="/register_lecture" method="post">
-    <h2>Lectures</h2>
-    <input type="submit" name="send" value="add"><br>
-
     <table border="1">
         <thead>
             <th>code</th>
@@ -72,8 +73,8 @@
                 <td>{{ l[0] }}</td>
                 <td>{{ l[1] }}</td>
                 <td>{{ l[2] }}</td>
-                <td>{{ l[3] }}</td>
-                <td><input type="submit" name="send" value="register"></td>
+                <td>{{ l[3] }}</td> 
+                <td><button id="register" type="submit" name="lecture" value="{{ l[1] }}">register</button></td>
             </tr>
             {% endfor %}
         </tbody>
