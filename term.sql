@@ -1,3 +1,10 @@
+DROP table account;
+DROP table rating_info;
+DROP table enrollment;
+DROP table lecture;
+DROP table subject;
+DROP table users;
+
 create table users
 (
 	id varchar(15) not null,
