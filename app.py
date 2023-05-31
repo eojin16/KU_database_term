@@ -47,7 +47,7 @@ def register():
 
         # Login fail if no match id
         if users_result is None:
-            return render_template("login_fail.html")
+            return "Login Failure : No matching IDs found."
 
         # admin page
         elif id == "admin":
@@ -81,7 +81,7 @@ def create():
 
     # If the ID you're trying to sign up for already exists
     if result is not None:
-        return render_template("ID_collision.html")
+        return "Signup Failure : The same ID already exists."
 
     # insert user into users table
     cur.execute("INSERT INTO users VALUES (%s, %s);", (id, password))
